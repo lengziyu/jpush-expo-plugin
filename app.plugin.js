@@ -295,12 +295,12 @@ const setAppBuildGradle = (config) =>
       if (config.modResults.contents.indexOf('JPUSH_APPKEY') === -1) {
         console.log('555');
         config.modResults.contents =
-          config.modResults.contents.slice(0, startStringIndex + 1) +
+          config.modResults.contents.slice(0, startStringIndex) +
           `        manifestPlaceholders = [
             JPUSH_APPKEY: "${JPUSH_APPKEY}",
             JPUSH_CHANNEL: "${JPUSH_CHANNEL}"
         ]\n` +
-          config.modResults.contents.slice(startStringIndex + 1);
+          config.modResults.contents.slice(startStringIndex);
         console.log('完成了吗');
       } else {
         console.log('666');
@@ -318,36 +318,21 @@ const setAppBuildGradle = (config) =>
       );
     const dependencies = config.modResults.contents.match(/dependencies {\n/);
     if (dependencies) {
-      const [startString] = dependencies;
-      const startStringLength = startString.length;
-      const startStringIndex =
-        config.modResults.contents.indexOf(startString) + startStringLength;
-      if (
-        config.modResults.contents.indexOf(
-          `implementation project(':jpush-react-native')`
-        ) === -1
-      ) {
-        console.log(
-          '\n[JPushExpoConfigPlugin] 配置 build.gradle dependencies jpush-react-native ... '
-        );
+      console.log('dependencies```');
+      const dependenciesBlock = config.modResults.contents.match(/dependencies \{([\s\S]*?)\}/);
+      const dependenciesContent = dependenciesBlock ? dependenciesBlock[1] : '';
+      console.log('dependencies11```');
+      if (dependenciesContent.indexOf(`implementation project(':jpush-react-native')`) === -1) {
+        console.log('\n[JPushExpoConfigPlugin] 配置 build.gradle dependencies jpush-react-native ... ');
         config.modResults.contents =
-          config.modResults.contents.slice(0, startStringIndex) +
-          `    implementation project(':jpush-react-native')\n` +
-          config.modResults.contents.slice(startStringIndex);
+          config.modResults.contents.replace(/dependencies \{/, `dependencies {\n    implementation project(':jpush-react-native')`);
       }
-      if (
-        config.modResults.contents.indexOf(
-          `implementation project(':jcore-react-native')`
-        ) === -1
-      ) {
-        console.log(
-          '\n[JPushExpoConfigPlugin] 配置 build.gradle dependencies jcore-react-native ... '
-        );
+      console.log('dependencies22```');
+      if (dependenciesContent.indexOf(`implementation project(':jcore-react-native')`) === -1) {
+        console.log('\n[JPushExpoConfigPlugin] 配置 build.gradle dependencies jcore-react-native ... ');
         config.modResults.contents =
-          config.modResults.contents.slice(0, startStringIndex) +
-          `    implementation project(':jcore-react-native')\n` +
-          config.modResults.contents.slice(startStringIndex);
-      }
+          config.modResults.contents.replace(/dependencies \{/, `dependencies {\n    implementation project(':jcore-react-native')`);
+      }      
     } else
       throw new Error(
         '[JPushExpoConfigPlugin] 无法完成 build.gradle dependencies 配置'
