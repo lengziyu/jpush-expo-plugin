@@ -1,4 +1,4 @@
-# jpush-expo-config-plugin
+# jpush-expo-plugin
 
 An expo config plugin for JPush
 
@@ -9,9 +9,9 @@ An expo config plugin for JPush
 ## 1. 安装
 
 ```
-npm install jpush-expo-config-plugin --save
+npm install jpush-expo-plugin --save
 或者
-yarn add jpush-expo-config-plugin
+yarn add jpush-expo-plugin
 ```
 
 > 注意: 如果项目里没有 jpush-react-native、jcore-react-native, 需要安装
@@ -33,7 +33,7 @@ app.json
   "expo": {
     "plugins": [
       [
-        "jpush-expo-config-plugin",
+        "jpush-expo-plugin",
         {
           "appKey": "你的极光推送AppKey",
           "channel": "你的极光推送Channel"
