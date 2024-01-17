@@ -295,12 +295,13 @@ const setAppBuildGradle = (config) =>
       if (config.modResults.contents.indexOf('JPUSH_APPKEY') === -1) {
         console.log('555');
         config.modResults.contents =
-          config.modResults.contents.slice(0, startStringIndex) +
+          config.modResults.contents.slice(0, startStringIndex + 1) +
           `        manifestPlaceholders = [
             JPUSH_APPKEY: "${JPUSH_APPKEY}",
             JPUSH_CHANNEL: "${JPUSH_CHANNEL}"
         ]\n` +
-          config.modResults.contents.slice(startStringIndex);
+          config.modResults.contents.slice(startStringIndex + 1);
+        console.log('完成了吗');
       } else {
         console.log('666');
         config.modResults.contents = config.modResults.contents.replace(
