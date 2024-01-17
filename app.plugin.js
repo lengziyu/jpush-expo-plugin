@@ -276,10 +276,10 @@ const setAppBuildGradle = (config) =>
     const defaultConfig = config.modResults.contents.match(
       /defaultConfig([\s\S]*)versionName(.*)\n/
     );
-    console.log('这里报错的~~~~~~~~~~');
+    console.log('这里报错的~~~~~~~~~~1');
     console.log('JPUSH_APPKEY:', JPUSH_APPKEY);
     console.log('JPUSH_CHANNEL:', JPUSH_CHANNEL);
-
+    console.log('hhhhhhhhh', defaultConfig);
     if (defaultConfig) {
       console.log('111');
       const [startString] = defaultConfig;
