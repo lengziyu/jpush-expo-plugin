@@ -316,7 +316,8 @@ const setAppBuildGradle = (config) =>
       throw new Error(
         '[JPushExpoConfigPlugin] 无法完成 build.gradle - defaultConfig 配置'
       );
-    const dependencies = config.modResults.contents.match(/dependencies {\n/);
+    const dependencies = config.modResults.contents.match(/dependencies\s*{\s*\n/);
+    console.log('dependencies~~~~~', dependencies);
     if (dependencies) {
       console.log('dependencies```');
       const dependenciesBlock = config.modResults.contents.match(/dependencies \{([\s\S]*?)\}/);
