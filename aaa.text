@@ -1,0 +1,189 @@
+config.modResults.contents1: {
+  path: 'E:\\ERP\\lby_erp_app\\android\\app\\build.gradle',
+  contents: 'apply plugin: "com.android.application"\r\n' +
+    'apply plugin: "com.facebook.react"\r\n' +
+    '\r\n' +
+    'def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()\r\n' +
+    '\r\n' +
+    '/**\r\n' +
+    ' * This is the configuration block to customize your React Native Android app.\r\n' +
+    " * By default you don't need to apply any configuration, just uncomment the lines you need.\r\n" +
+    ' */\r\n' +
+    'react {\r\n' +
+    `    entryFile = file(["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute(null, rootDir).text.trim())\r\n` +
+    `    reactNativeDir = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()\r\n` +
+    `    hermesCommand = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/sdks/hermesc/%OS-BIN%/hermesc"\r\n` +
+    `    codegenDir = new File(["node", "--print", "require.resolve('@react-native/codegen/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()\r\n` +
+    '\r\n' +
+    '    // Use Expo CLI to bundle the app, this ensures the Metro config\r\n' +
+    '    // works correctly with Expo projects.\r\n' +
+    `    cliFile = new File(["node", "--print", "require.resolve('@expo/cli')"].execute(null, rootDir).text.trim())\r\n` +
+    '    bundleCommand = "export:embed"\r\n' +
+    '\r\n' +
+    '    /* Folders */\r\n' +
+    `    //   The root of your project, i.e. where "package.json" lives. Default is '..'\r\n` +
+    '    // root = file("../")\r\n' +
+    '    //   The folder where the react-native NPM package is. Default is ../node_modules/react-native\r\n' +
+    '    // reactNativeDir = file("../node_modules/react-native")\r\n' +
+    '    //   The folder where the react-native Codegen package is. Default is ../node_modules/@react-native/codegen\r\n' +
+    '    // codegenDir = file("../node_modules/@react-native/codegen")\r\n' +
+    '\r\n' +
+    '    /* Variants */\r\n' +
+    "    //   The list of variants to that are debuggable. For those we're going to\r\n" +
+    "    //   skip the bundling of the JS bundle and the assets. By default is just 'debug'.\r\n" +
+    "    //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.\r\n" +
+    '    // debuggableVariants = ["liteDebug", "prodDebug"]\r\n' +
+    '\r\n' +
+    '    /* Bundling */\r\n' +
+    "    //   A list containing the node command and its flags. Default is just 'node'.\r\n" +
+    '    // nodeExecutableAndArgs = ["node"]\r\n' +
+    '\r\n' +
+    '    //\r\n' +
+    '    //   The path to the CLI configuration file. Default is empty.\r\n' +
+    '    // bundleConfig = file(../rn-cli.config.js)\r\n' +
+    '    //\r\n' +
+    '    //   The name of the generated asset file containing your JS bundle\r\n' +
+    '    // bundleAssetName = "MyApplication.android.bundle"\r\n' +
+    '    //\r\n' +
+    "    //   The entry file for bundle generation. Default is 'index.android.js' or 'index.js'\r\n" +
+    '    // entryFile = file("../js/MyApplication.android.js")\r\n' +
+    '    //\r\n' +
+    "    //   A list of extra flags to pass to the 'bundle' commands.\r\n" +
+    '    //   See https://github.com/react-native-community/cli/blob/main/docs/commands.md#bundle\r\n' +
+    '    // extraPackagerArgs = []\r\n' +
+    '\r\n' +
+    '    /* Hermes Commands */\r\n' +
+    "    //   The hermes compiler command to run. By default it is 'hermesc'\r\n" +
+    '    // hermesCommand = "$rootDir/my-custom-hermesc/bin/hermesc"\r\n' +
+    '    //\r\n' +
+    '    //   The list of flags to pass to the Hermes compiler. By default is "-O", "-output-source-map"\r\n' +
+    '    // hermesFlags = ["-O", "-output-source-map"]\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '/**\r\n' +
+    ' * Set this to true to Run Proguard on Release builds to minify the Java bytecode.\r\n' +
+    ' */\r\n' +
+    "def enableProguardInReleaseBuilds = (findProperty('android.enableProguardInReleaseBuilds') ?: false).toBoolean()\r\n" +
+    '\r\n' +
+    '/**\r\n' +
+    ' * The preferred build flavor of JavaScriptCore (JSC)\r\n' +
+    ' *\r\n' +
+    ' * For example, to use the international variant, you can use:\r\n' +
+    " * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`\r\n" +
+    ' *\r\n' +
+    ' * The international variant includes ICU i18n library and necessary data\r\n' +
+    ' * allowing to use e.g. `Date.toLocaleString` and `String.localeCompare` that\r\n' +
+    ' * give correct results when using with locales other than en-US. Note that\r\n' +
+    ' * this variant is about 6MiB larger per architecture than default.\r\n' +
+    ' */\r\n' +
+    "def jscFlavor = 'org.webkit:android-jsc:+'\r\n" +
+    '\r\n' +
+    'android {\r\n' +
+    '    ndkVersion rootProject.ext.ndkVersion\r\n' +
+    '\r\n' +
+    '    compileSdkVersion rootProject.ext.compileSdkVersion\r\n' +
+    '\r\n' +
+    '    namespace "com.app"\r\n' +
+    '    defaultConfig {\r\n' +
+    "        applicationId 'com.lbgcy.android'\r\n" +
+    '        minSdkVersion rootProject.ext.minSdkVersion\r\n' +
+    '        targetSdkVersion rootProject.ext.targetSdkVersion\r\n' +
+    '        versionCode 9\r\n' +
+    '        versionName "1.0.9"\r\n' +
+    '\r\n' +
+    '        buildConfigField("boolean", "REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS", (findProperty("reactNative.unstable_useRuntimeSchedulerAlways") ?: true).toString())\r\n' +
+    '    }\r\n' +
+    '    signingConfigs {\r\n' +
+    '        debug {\r\n' +
+    "            storeFile file('debug.keystore')\r\n" +
+    "            storePassword 'android'\r\n" +
+    "            keyAlias 'androiddebugkey'\r\n" +
+    "            keyPassword 'android'\r\n" +
+    '        }\r\n' +
+    '    }\r\n' +
+    '    buildTypes {\r\n' +
+    '        debug {\r\n' +
+    '            signingConfig signingConfigs.debug\r\n' +
+    '        }\r\n' +
+    '        release {\r\n' +
+    '            // Caution! In production, you need to generate your own keystore file.\r\n' +
+    '            // see https://reactnative.dev/docs/signed-apk-android.\r\n' +
+    '            signingConfig signingConfigs.debug\r\n' +
+    "            shrinkResources (findProperty('android.enableShrinkResourcesInReleaseBuilds')?.toBoolean() ?: false)\r\n" +
+    '            minifyEnabled enableProguardInReleaseBuilds\r\n' +
+    '            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"\r\n' +
+    '        }\r\n' +
+    '    }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    '// Apply static values from `gradle.properties` to the `android.packagingOptions`\r\n' +
+    '// Accepts values in comma delimited lists, example:\r\n' +
+    '// android.packagingOptions.pickFirsts=/LICENSE,**/picasa.ini\r\n' +
+    '["pickFirsts", "excludes", "merges", "doNotStrip"].each { prop ->\r\n' +
+    "    // Split option: 'foo,bar' -> ['foo', 'bar']\r\n" +
+    '    def options = (findProperty("android.packagingOptions.$prop") ?: "").split(",");\r\n' +
+    '    // Trim all elements in place.\r\n' +
+    '    for (i in 0..<options.size()) options[i] = options[i].trim();\r\n' +
+    '    // `[] - ""` is essentially `[""].filter(Boolean)` removing all empty strings.\r\n' +
+    '    options -= ""\r\n' +
+    '\r\n' +
+    '    if (options.length > 0) {\r\n' +
+    '        println "android.packagingOptions.$prop += $options ($options.length)"\r\n' +
+    "        // Ex: android.packagingOptions.pickFirsts += '**/SCCS/**'\r\n" +
+    '        options.each {\r\n' +
+    '            android.packagingOptions[prop] += it\r\n' +
+    '        }\r\n' +
+    '    }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    'dependencies {\r\n' +
+    '    // The version of react-native is set by the React Native Gradle Plugin\r\n' +
+    '    implementation("com.facebook.react:react-android")\r\n' +
+    '\r\n' +
+    `    def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";\r\n` +
+    `    def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";\r\n` +
+    `    def isWebpAnimatedEnabled = (findProperty('expo.webp.animated') ?: "") == "true";\r\n` +
+    '    def frescoVersion = rootProject.ext.frescoVersion\r\n' +
+    '\r\n' +
+    '    // If your app supports Android versions before Ice Cream Sandwich (API level 14)\r\n' +
+    '    if (isGifEnabled || isWebpEnabled) {\r\n' +
+    '        implementation("com.facebook.fresco:fresco:${frescoVersion}")\r\n' +
+    '        implementation("com.facebook.fresco:imagepipeline-okhttp3:${frescoVersion}")\r\n' +
+    '    }\r\n' +
+    '\r\n' +
+    '    if (isGifEnabled) {\r\n' +
+    '        // For animated gif support\r\n' +
+    '        implementation("com.facebook.fresco:animated-gif:${frescoVersion}")\r\n' +
+    '    }\r\n' +
+    '\r\n' +
+    '    if (isWebpEnabled) {\r\n' +
+    '        // For webp support\r\n' +
+    '        implementation("com.facebook.fresco:webpsupport:${frescoVersion}")\r\n' +
+    '        if (isWebpAnimatedEnabled) {\r\n' +
+    '            // Animated webp support\r\n' +
+    '            implementation("com.facebook.fresco:animated-webp:${frescoVersion}")\r\n' +
+    '        }\r\n' +
+    '    }\r\n' +
+    '\r\n' +
+    '    debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")\r\n' +
+    '    debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {\r\n' +
+    "        exclude group:'com.squareup.okhttp3', module:'okhttp'\r\n" +
+    '    }\r\n' +
+    '    debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")\r\n' +
+    '\r\n' +
+    '    if (hermesEnabled.toBoolean()) {\r\n' +
+    '        implementation("com.facebook.react:hermes-android")\r\n' +
+    '    } else {\r\n' +
+    '        implementation jscFlavor\r\n' +
+    '    }\r\n' +
+    '}\r\n' +
+    '\r\n' +
+    `apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')"].execute(null, rootDir).text.trim(), "../native_modules.gradle");\r\n` +
+    'applyNativeModulesAppBuildGradle(project)\r\n',
+  language: 'groovy'
+}
+
+JPUSH_APPKEY: 239da00a720b50e59cf53ea4
+JPUSH_CHANNEL: default
+× Config sync failed
+[android.appBuildGradle]: withAndroidAppBuildGradleBaseMod: [JPushExpoConfigPlugin] 无法完成 build.gradle - defaultConfig 配置

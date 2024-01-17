@@ -277,20 +277,23 @@ const setAppBuildGradle = (config) =>
       /defaultConfig([\s\S]*)versionName(.*)\n/
     );
     console.log('这里报错的~~~~~~~~~~');
-    console.log('config.modResults.contents1:', config.modResults);
-    console.log('config.modResults.contents2:', config.modResults.contents);
     console.log('JPUSH_APPKEY:', JPUSH_APPKEY);
     console.log('JPUSH_CHANNEL:', JPUSH_CHANNEL);
 
     if (defaultConfig) {
+      console.log('111');
       const [startString] = defaultConfig;
+      console.log('222', startString);
       const startStringLength = startString.length;
+      console.log('333', startStringLength);
       const startStringIndex =
         config.modResults.contents.indexOf(startString) + startStringLength;
+        console.log('444', startStringIndex);
       console.log(
         '\n[JPushExpoConfigPlugin] 配置 build.gradle appKey & channel ... '
       );
       if (config.modResults.contents.indexOf('JPUSH_APPKEY') === -1) {
+        console.log('555');
         config.modResults.contents =
           config.modResults.contents.slice(0, startStringIndex) +
           `        manifestPlaceholders = [
@@ -299,6 +302,7 @@ const setAppBuildGradle = (config) =>
         ]\n` +
           config.modResults.contents.slice(startStringIndex);
       } else {
+        console.log('666');
         config.modResults.contents = config.modResults.contents.replace(
           /manifestPlaceholders([\s\S]*)JPUSH_APPKEY([\s\S]*)JPUSH_CHANNEL(.*)"\n(.*)\]\n/,
           `manifestPlaceholders = [
