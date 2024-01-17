@@ -274,7 +274,7 @@ const setAndroidManifest = (config) =>
 const setAppBuildGradle = (config) =>
   withAppBuildGradle(config, (config) => {
     const defaultConfig = config.modResults.contents.match(
-      /defaultConfig([\s\S]*)versionName(.*)\n/
+      /defaultConfig([\s\S]*?)\}\s*\n/
     );
     console.log('这里报错的~~~~~~~~~~1');
     console.log('JPUSH_APPKEY:', JPUSH_APPKEY);
